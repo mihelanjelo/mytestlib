@@ -3,11 +3,19 @@ from typing import List
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from mytestlib.utils.basic_actions import BasicActions
+from mytestlib.basic_actions import BasicActions
 
 
 # Базовый класс для PageObject объектов
 class BasePage:
+    __instance = None
+
+    def __new__(cls, val):
+        if cls.__instance is None:
+            cls.__instance = object.__new__(cls)
+        cls.__instance.val = val
+        return cls.__instance
+
     def __init__(self, driver):
         self.driver = driver
         self.basic_actions = BasicActions(driver)
@@ -68,7 +76,6 @@ class BasePage:
                 action.perform()
 
     def get_text_from(self, locator_name, time_waiting_element=0) -> str:
-
         if 'input' in self.LOCATORS[locator_name][1] or 'textarea' in self.LOCATORS[locator_name][1]:
             return self.basic_actions.wait_element(self.LOCATORS[locator_name], time_waiting_element). \
                 get_attribute('value')
@@ -105,3 +112,7 @@ class BasePage:
         else:
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
             return self.basic_actions.wait_element(locator, time_waiting_element)
+
+
+if __name__ == '__main__':
+    print(BasePage.__name__)

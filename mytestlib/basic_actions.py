@@ -5,12 +5,12 @@ from selenium.webdriver.common.by import By
 from selenium.webdriver.support.select import Select
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
-
 last_wanted_element_info = None
 
 
 # Класс c базовыми действиями над элементами страниц
 class BasicActions:
+
     def __init__(self, driver):
         self.driver = driver
 
