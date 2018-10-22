@@ -1,0 +1,10 @@
+Metadata-Version: 1.0
+Name: mytestlib
+Version: 0.1
+Summary: My test lib
+Home-page: https://github.com/mihelanjelo/mytestlib.git
+Author: Mimsa
+Author-email: mixanrattle@gmail.com
+License: MIT
+Description: It's my test lib
+Platform: UNKNOWN
