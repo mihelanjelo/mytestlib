@@ -3,7 +3,7 @@ from typing import List
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.remote.webelement import WebElement
-from utils.basic_actions import BasicActions
+from mytestlib.utils.basic_actions import BasicActions
 
 
 # Базовый класс для PageObject объектов
