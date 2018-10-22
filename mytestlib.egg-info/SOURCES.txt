@@ -2,10 +2,10 @@ README.md
 setup.py
 mytestlib/__init__.py
 mytestlib/base_page.py
+mytestlib/basic_actions.py
+mytestlib/helper.py
 mytestlib.egg-info/PKG-INFO
 mytestlib.egg-info/SOURCES.txt
 mytestlib.egg-info/dependency_links.txt
 mytestlib.egg-info/not-zip-safe
 mytestlib.egg-info/top_level.txt
-mytestlib/utils/__init__.py
-mytestlib/utils/basic_actions.py
