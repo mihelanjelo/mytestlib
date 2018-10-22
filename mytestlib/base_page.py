@@ -112,7 +112,3 @@ class BasePage:
         else:
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
             return self.basic_actions.wait_element(locator, time_waiting_element)
-
-
-if __name__ == '__main__':
-    print(BasePage.__name__)
