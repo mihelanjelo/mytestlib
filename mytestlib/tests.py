@@ -1,5 +1,4 @@
 import unittest
-
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from mytestlib.base_page import BasePage
@@ -19,9 +18,7 @@ class TestBasePage(unittest.TestCase):
     def test_base_page(self):
         helper = Helper(webdriver.Chrome())
         on = helper.on_page
-
         helper.visit('https://www.tiobe.com/tiobe-index/')
-
         assert on(MockPage).is_page_opened(5)
         assert on(MockPage).click_at('Java', 3).is_visible('Detailed view on java', 3)
         helper.quit()
