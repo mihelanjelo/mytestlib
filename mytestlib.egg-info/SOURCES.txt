@@ -1,6 +1,5 @@
 README.md
 setup.py
-mytestlib/__init__.py
 mytestlib/base_page.py
 mytestlib/basic_actions.py
 mytestlib/helper.py
