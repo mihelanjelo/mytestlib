@@ -48,7 +48,7 @@ class BasePage(metaclass=Singleton):
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
             return self.basic_actions.is_element_visible(locator, time_waiting_element)
 
-    def is_not_visible(self, locator_name: object, time_waiting_element: object = 0, values: object = None) -> bool:
+    def is_not_visible(self, locator_name, time_waiting_element=0, values=None) -> bool:
         if not values:
             return self.basic_actions.wait_element_hiding(self.LOCATORS[locator_name], time_waiting_element)
         else:
@@ -76,6 +76,7 @@ class BasePage(metaclass=Singleton):
                 action.move_to_element_with_offset(el, offset['x'], offset['y'])
                 action.click()
                 action.perform()
+        return self
 
     def get_text_from(self, locator_name, time_waiting_element=0) -> str:
         if 'input' in self.LOCATORS[locator_name][1] or 'textarea' in self.LOCATORS[locator_name][1]:
@@ -94,12 +95,15 @@ class BasePage(metaclass=Singleton):
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
             print(locator)
             self.basic_actions.send_text_to_element(text, locator, time_waiting_element)
+        return self
 
     def clear(self, locator_name, time_waiting_element=0):
         self.basic_actions.wait_element(self.LOCATORS[locator_name], time_waiting_element).clear()
+        return self
 
     def select_item(self, locator_name, value, time_waiting_element=0):
         self.basic_actions.select_item_by_text(value, self.LOCATORS[locator_name], time_waiting_element)
+        return self
 
     def get_elements(self, locator_name, time_waiting_element=0, values=None) -> List[WebElement]:
         if not values:
