@@ -2,7 +2,6 @@ import unittest
 
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-
 from mytestlib.base_page import BasePage
 from mytestlib.helper import Helper
 
@@ -26,5 +25,3 @@ class TestBasePage(unittest.TestCase):
         assert on(MockPage).is_page_opened(5)
         assert on(MockPage).click_at('Java', 3).is_visible('Detailed view on java', 3)
         helper.quit()
-
-
