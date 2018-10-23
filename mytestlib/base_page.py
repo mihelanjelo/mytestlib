@@ -6,15 +6,17 @@ from selenium.webdriver.remote.webelement import WebElement
 from mytestlib.basic_actions import BasicActions
 
 
-# Базовый класс для PageObject объектов
-class BasePage:
-    __instance = None
+class Singleton(type):
+    _instances = {}
 
-    def __new__(cls, val):
-        if cls.__instance is None:
-            cls.__instance = object.__new__(cls)
-        cls.__instance.val = val
-        return cls.__instance
+    def __call__(cls, *args, **kwargs):
+        if cls not in cls._instances:
+            cls._instances[cls] = super(Singleton, cls).__call__(*args, **kwargs)
+        return cls._instances[cls]
+
+
+# Базовый класс для PageObject объектов
+class BasePage(metaclass=Singleton):
 
     def __init__(self, driver):
         self.driver = driver
