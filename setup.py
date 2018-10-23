@@ -7,6 +7,6 @@ setup(name='mytestlib',
       author='Mimsa',
       author_email='mixanrattle@gmail.com',
       description='My test lib',
-      packages=find_packages(exclude=['venv', '.idea']),
+      packages=find_packages(exclude=['venv', '.idea', '__pycache__']),
       long_description=open('README.md').read(),
       zip_safe=False)
