@@ -12,16 +12,13 @@ class MockPage(BasePage):
     LOCATORS = {
         "Java": (By.XPATH, "//td[contains(text(), 'Java')]"),
         "Detailed view on java": (By.XPATH, "//b[contains(text(), 'The Java Programming Language')]"),
-
     }
 
 
 class TestBasePage(unittest.TestCase):
 
     def test_base_page(self):
-        driver = webdriver.Chrome()
-
-        helper = Helper(driver)
+        helper = Helper(webdriver.Chrome())
         on = helper.on_page
 
         helper.visit('https://www.tiobe.com/tiobe-index/')
