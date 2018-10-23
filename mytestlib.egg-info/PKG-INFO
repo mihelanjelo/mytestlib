@@ -1,11 +1,11 @@
 Metadata-Version: 1.0
 Name: mytestlib
-Version: 0.2
+Version: 0.3
 Summary: My test lib
 Home-page: https://github.com/mihelanjelo/mytestlib.git
 Author: Mimsa
 Author-email: mixanrattle@gmail.com
 License: MIT
-Description: It's my testing library
+Description: It's my testing library</br>
         python -m unittest mytestlib.tests
 Platform: UNKNOWN
