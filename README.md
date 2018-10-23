@@ -1,2 +1,2 @@
-It's my test lib
+It's my test library
 python -m unittest mytestlib.tests
