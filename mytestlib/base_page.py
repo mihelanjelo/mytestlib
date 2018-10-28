@@ -93,7 +93,6 @@ class BasePage(metaclass=Singleton):
             self.basic_actions.send_text_to_element(text, self.LOCATORS[locator_name], time_waiting_element)
         else:
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
-            print(locator)
             self.basic_actions.send_text_to_element(text, locator, time_waiting_element)
         return self
 
