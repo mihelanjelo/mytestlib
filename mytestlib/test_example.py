@@ -3,6 +3,7 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 from mytestlib.base_page import BasePage
 from mytestlib.helper import Helper
+from mytestlib.pages_factory import BaseFactory
 
 
 class MockPage(BasePage):
@@ -13,12 +14,12 @@ class MockPage(BasePage):
     }
 
 
-class TestBasePage(unittest.TestCase):
+def test_base_page():
+    driver = webdriver.Chrome()
+    helper = Helper(driver)
+    on = BaseFactory.init_pages(driver)
+    helper.visit('https://www.tiobe.com/tiobe-index/')
+    assert on['MockPage'].is_page_opened(5)
+    assert on['MockPage'].click_at('Java', 3).is_visible('Detailed view on java', 3)
+    helper.quit()
 
-    def test_base_page(self):
-        helper = Helper(webdriver.Chrome())
-        on = helper.on_page
-        helper.visit('https://www.tiobe.com/tiobe-index/')
-        assert on(MockPage).is_page_opened(5)
-        assert on(MockPage).click_at('Java', 3).is_visible('Detailed view on java', 3)
-        helper.quit()

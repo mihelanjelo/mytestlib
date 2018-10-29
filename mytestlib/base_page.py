@@ -17,7 +17,6 @@ class Singleton(type):
 
 # Базовый класс для PageObject объектов
 class BasePage(metaclass=Singleton):
-
     def __init__(self, driver):
         self.driver = driver
         self.basic_actions = BasicActions(driver)
