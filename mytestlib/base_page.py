@@ -32,7 +32,7 @@ class BasePage(metaclass=Singleton):
         "example pattern": "//div[text()='{text}']"
     }
 
-    def is_page_opened(self,  waiting_time=0):
+    def is_page_opened(self,  waiting_time=0) -> bool:
         for i in range(0, waiting_time + 1):
             if self.driver.title == self.PAGE_TITLE:
                 return True
@@ -55,7 +55,7 @@ class BasePage(metaclass=Singleton):
             locator = (By.XPATH, self.XPATH_PATTERNS[locator_name].format(**values))
             return self.basic_actions.wait_element_hiding(locator, time_waiting_element)
 
-    def click_at(self, locator_name, time_waiting_element=0, values=None, offset=None):
+    def click_at(self, locator_name, time_waiting_element=0, values=None, offset=None) -> object:
         if not offset:
             if not values:
                 self.basic_actions.click_on_element(self.LOCATORS[locator_name], time_waiting_element)
@@ -96,11 +96,11 @@ class BasePage(metaclass=Singleton):
             self.basic_actions.send_text_to_element(text, locator, time_waiting_element)
         return self
 
-    def clear(self, locator_name, time_waiting_element=0):
+    def clear(self, locator_name, time_waiting_element=0) -> object:
         self.basic_actions.wait_element(self.LOCATORS[locator_name], time_waiting_element).clear()
         return self
 
-    def select_item(self, locator_name, value, time_waiting_element=0):
+    def select_item(self, locator_name, value, time_waiting_element=0) -> object:
         self.basic_actions.select_item_by_text(value, self.LOCATORS[locator_name], time_waiting_element)
         return self
 
